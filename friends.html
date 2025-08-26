@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends - Whistle</title>
+    <link rel="stylesheet" href="CSS/all.css">
+    <link rel="stylesheet" href="CSS/Default.css">
+    <link rel="stylesheet" href="CSS/friends.css">
+    <style>
+    </style>
+</head>
+<body class="flex row gap">
+    <div class="main-grid">
+        <section class="first-aside hide-scrollbar flex col a-center gap">
+            <div class="user-box bg-blur flex row center gap inside-thiefe" targeted-with="profile.html">
+                <div class="user-img profile-img"><img src="Background/Pics/1.jpg" alt="User" crossorigin="anonymous"></div>
+                <div class="flex col j-center">
+                    <span id="user-name" class="text">Mohammed Ahmed</span>
+                    <span id="username" class="text">@temrevil</span>
+                </div>
+            </div>
+            <div class="menu-list flex col a-start gap">
+                <button class="menu-btn btn-hover flex row a-center gap" targeted-with="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="text">Home</span>
+                </button>
+                <button class="menu-btn btn-hover flex row a-center gap active" targeted-with="friends.html">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span class="text">Friends</span>
+                </button>
+            </div>
+            <button id="open-sets" class="menu-btn settings-btn scale-active flex row a-center gap">
+                <i class="fa-solid fa-gear"></i>
+                <span class="text">Settings</span>
+            </button>
+        </section>
+        <div class="main-center-g hide-scrollbar flex col">
+            <div class="friends-container">
+                <div class="flex row a-center j-between" style="margin-bottom: 30px;">
+                    <h1 class="title">Friends</h1>
+                    <button class="one-btn flex row a-center gap">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>Find Friends</span>
+                    </button>
+                </div>
+                <div class="friends-tabs flex row">
+                    <button class="tab-btn active" data-tab="suggestions">
+                        <i class="fa-solid fa-users"></i> Suggestions
+                    </button>
+                    <button class="tab-btn" data-tab="requests">
+                        <i class="fa-solid fa-user-clock"></i> Requests
+                    </button>
+                    <button class="tab-btn" data-tab="friends">
+                        <i class="fa-solid fa-user-check"></i> Friends
+                    </button>
+                    <button class="tab-btn" data-tab="canceled">
+                        <i class="fa-solid fa-user-xmark"></i> Canceled
+                    </button>
+                </div>
+                <div class="tab-content" id="suggestions-tab">
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="Background/Pics/2.jpg" alt="Mohammed" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">Tem Revil</div>
+                            <div class="friend-username text">@temrevil</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-primary">
+                                <i class="fa-solid fa-user-plus"></i> Follow
+                            </button>
+                        </div>
+                    </div>
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="Background/Pics/5.jpg" alt="Tem" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">Alen Wilson</div>
+                            <div class="friend-username text">@Alen231</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-primary">
+                                <i class="fa-solid fa-user-plus"></i> Follow
+                            </button>
+                        </div>
+                    </div>
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="Background/Pics/8.jpg" alt="Alex" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">Alex Johnson</div>
+                            <div class="friend-username text">@alex_codes</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-primary">
+                                <i class="fa-solid fa-user-plus"></i> Follow
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content off" id="requests-tab">
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="Background/Pics/9.jpg" alt="Emma" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">January Rodriguez</div>
+                            <div class="friend-username text">@January_art</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-success">
+                                <i class="fa-solid fa-check"></i> Accept
+                            </button>
+                            <button class="action-btn btn-danger">
+                                <i class="fa-solid fa-times"></i> Decline
+                            </button>
+                        </div>
+                    </div>
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="Background/Pics/6.jpeg" alt="David" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">David Chen</div>
+                            <div class="friend-username text text">@david_photo</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-success">
+                                <i class="fa-solid fa-check"></i> Accept
+                            </button>
+                            <button class="action-btn btn-danger">
+                                <i class="fa-solid fa-times"></i> Decline
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content off" id="friends-tab">
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Sarah" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">Alan Johnson</div>
+                            <div class="friend-username text text">@Alan_JD</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-secondary">
+                                <i class="fa-solid fa-comment"></i> Message
+                            </button>
+                            <button class="action-btn btn-danger">
+                                <i class="fa-solid fa-user-minus"></i> Unfollow
+                            </button>
+                        </div>
+                    </div>
+                    <div class="friend-item flex row a-center">
+                        <div class="friend-avatar profile-img">
+                            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=100&h=100&fit=crop&crop=face" alt="Mike" crossorigin="anonymous">
+                        </div>
+                        <div class="friend-info">
+                            <div class="friend-name text">Mike Thompson</div>
+                            <div class="friend-username text text">@mike_tech</div>
+                        </div>
+                        <div class="friend-actions flex row">
+                            <button class="action-btn btn-secondary">
+                                <i class="fa-solid fa-comment"></i> Message
+                            </button>
+                            <button class="action-btn btn-danger">
+                                <i class="fa-solid fa-user-minus"></i> Unfollow
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content off" id="canceled-tab">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-user-slash"></i>
+                        <div class="text">No canceled friend requests</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="suggestions hide-scrollbar flex col gap">
+            <div class="suggestion-box bg-blur flex row center gap inside-thiefe">
+                <div class="suggestion-img profile-img">
+                    <img src="Background/2 (1).jpg" alt="Tem" crossorigin="anonymous">
+                </div>
+                <span class="text">Tem Revil</span>
+                <button class="one-btn">Follow</button>
+            </div>
+        </section>
+    </div>
+    <section class="thunder-island">
+        <div class="thunder-pop bg-blur flex row center align">
+            <i class="fa-regular fa-dove"></i>
+            <p class="align">Whistling</p>
+        </div>
+        <div class="whistlers flex col gap off">
+            <div class="whistle-box scale-active flex row a-center gap"
+                user-id="Mohammed Ahmed"
+                data-convo='[{"from":"them","text":"Hey! How are you doing?"},{"from":"me","text":"They Tryna Insult My Intelligence, Sometimes i may Act Stupid."},{"from":"them","text":"That\'s deep man! 🤔"},{"from":"me","text":"Yeah, just keeping it real 💯"},{"from":"them","text":"Respect! Always stay true to yourself"}]'>
+                <div class="whistle-img profile-img"><img src="Background/Pics/1.jpg" alt="user"></div>
+                <div class="flex col">
+                    <span class="text" id="whistle-box-username">Mohammed Ahmed</span>
+                    <span class="text" id="whistle-box-message">Hey Asshole</span>
+                </div>
+            </div>
+            <div class="whistle-box scale-active flex row a-center gap"
+                user-id="Tem Revil"
+                data-convo='[{"from":"them","text":"What\'s up everyone! 🎉"}]'>
+                <div class="whistle-img profile-img"><img src="Background/Pics/2.jpg" alt="tem"></div>
+                <div class="flex col">
+                    <span class="text" id="whistle-box-username">tem Wilson</span>
+                    <span class="text" id="whistle-box-message">What's up everyone! 🎉</span>
+                </div>
+            </div>
+            <div class="whistle-box scale-active flex row a-center gap"
+                user-id="Alex Albon"
+                data-convo='[{"from":"them","text":"Just finished my morning workout 💪"}]'>
+                <div class="whistle-img profile-img"><img src="Background/Pics/3.jpg" alt="Alex"></div>
+                <div class="flex col">
+                    <span class="text" id="whistle-box-username">Alex Johnson</span>
+                    <span class="text" id="whistle-box-message">Just finished my morning workout 💪</span>
+                </div>
+            </div>
+            <div class="whistle-box scale-active flex row a-center gap"
+                user-id="Ema Art"
+                data-convo='[{"from":"them","text":"Coffee and coding this morning ☕"}]'>
+                <div class="whistle-img profile-img"><img src="Background/Pics/4.jpg" alt="Emma"></div>
+                <div class="flex col">
+                    <span class="text" id="whistle-box-username">Emma Rodriguez</span>
+                    <span class="text" id="whistle-box-message">Coffee and coding this morning ☕</span>
+                </div>
+            </div>
+            <div class="whistle-box scale-active flex row a-center gap"
+                user-id="David Chen"
+                data-convo='[{"from":"them","text":"Beautiful sunset today! 🌅"}]'>
+                <div class="whistle-img profile-img"><img src="Background/Pics/8.jpg" alt="David"></div>
+                <div class="flex col">
+                    <span class="text" id="whistle-box-username">David Chen</span>
+                    <span class="text" id="whistle-box-message">Beautiful sunset today! 🌅</span>
+                </div>
+            </div>
+        </div>
+        <div class="w flex col off" id="whistle-whistling">
+            <div class="cur-whistle bg-blur flex row a-center gap">
+                <!-- Back button -->
+                <button class="one-btn scale-active" id="backToList">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="cur-whistle-img profile-img">
+                    <img src="" alt="user">
+                </div>
+                <span class="text"></span>
+            </div>
+
+            <div class="whistle-messages flex col gap"></div>
+
+            <div class="whistle-input flex row a-center gap">
+                <input type="text" id="whistleInput" placeholder="Whistle something...">
+                <button class="send-btn scale-active" id="sendWhistleBtn">
+                    <i class="fa-solid fa-hand-middle-finger"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="sets-modal flex center off">
+        <div id="settings" class="sets-box bg-blur flex row gap">
+            <!-- Aside Navigation -->
+            <button class="close-sets one-btn"><i class="fa-solid fa-xmark"></i></button>
+            <aside class="settings-aside flex col gap">
+                <div class="sets-header flex row j-between a-center">
+                    <p class="align">Settings</p>
+                </div>
+                <hr class="hr-h">
+                <div class="nav-buttons flex col gap">
+                    <button class="nav-btn one-btn scale-active active" data-target="appearance"><i class="fa-solid fa-palette"></i> Appearance</button>
+                    <button class="nav-btn one-btn scale-active" data-target="notifications"><i class="fa-solid fa-bell"></i> Notifications</button>
+                    <button class="nav-btn one-btn scale-active" data-target="privacy"><i class="fa-solid fa-shield-halved"></i> Privacy</button>
+                    <button class="nav-btn one-btn scale-active" data-target="account"><i class="fa-solid fa-user-gear"></i> Account</button>
+                </div>
+            </aside>
+            <div class="settings-main w flex col">
+                <!-- Appearance Section -->
+                <div class="settings-section w flex col gap" id="appearance">
+                    <p class="align">Appearance Settings</p>
+                    <hr class="hr-h">
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Dark Mode</span>
+                            <small class="text-1 deactivated">Switch between light and dark themes<br>(The Only One What Works btw.)</small>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Font Size</span>
+                            <small class="text-1 deactivated">Adjust text readability</small>
+                        </div>
+                        <div class="dropdown" selected="Medium" options="Small,Medium,Large">
+                            <div class="dropdown-toggle"></div>
+                            <div class="dropdown-menu"></div>
+                        </div>
+                    </div>
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Animation Speed</span>
+                            <small class="text-1 deactivated">Control interface animations</small>
+                        </div>
+                        <div class="dropdown" selected="Normal" options="Slow,Normal,Fast">
+                            <div class="dropdown-toggle"></div>
+                            <div class="dropdown-menu"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Notifications Section -->
+                <div class="settings-section w flex col gap off" id="notifications">
+                    <p class="align">Notification Settings</p>
+                    <hr class="hr-h">
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Push Notifications</span>
+                            <small class="text-1 deactivated">Get notified about new messages and activities</small>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="notificationsToggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Sound Effects</span>
+                            <small class="text-1 deactivated">Play sounds for notifications and actions</small>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Email Notifications</span>
+                            <small class="text-1 deactivated">Receive updates via email</small>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="emailToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Privacy Section -->
+                <div class="settings-section w flex col gap off" id="privacy">
+                    <p class="align">Privacy Settings</p>
+                    <hr class="hr-h">
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Online Status</span>
+                            <small class="text-1 deactivated">Show when you're online to others</small>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="onlineStatusToggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Read Receipts</span>
+                            <small class="text-1 deactivated">Let others see when you've read their messages</small>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="readReceiptsToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item bg-blur flex row j-between a-center">
+                        <div class="setting-info flex col">
+                            <span class="text">Profile Visibility</span>
+                            <small class="text-1 deactivated">Control who can see your profile</small>
+                        </div>
+                        <div class="dropdown" selected="Public" options="Public,Friends Only,Private">
+                            <div class="dropdown-toggle"></div>
+                            <div class="dropdown-menu"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Account Section -->
+                <div class="settings-section w flex col gap off" id="account">
+                    <p class="align">Account Management</p>
+                    <hr class="hr-h">
+                    <div class="account-actions flex col gap">
+                        <button class="one-btn scale-active">
+                            <i class="fa-solid fa-key"></i>
+                            Change Password
+                        </button>
+                        <button class="one-btn scale-active" style="background-color: var(--our-blue); color: #fff;">
+                            <i class="fa-solid fa-download"></i>
+                            Export Data
+                        </button>
+                        <button class="one-btn scale-active">
+                            <i class="fa-solid fa-trash-can"></i>
+                            Clear Cache
+                        </button>
+                        <button class="one-btn scale-active" style="background-color: #ff6b6b; color: #fff;">
+                            <i class="fa-solid fa-user-xmark"></i>
+                            Delete Account
+                        </button>
+                    </div>
+                    <div class="setting-item bg-blur" style="margin-top: 20px;">
+                        <div class="setting-info flex col" style="margin-bottom: 15px;">
+                            <span class="text">Account Information</span>
+                            <small class="text-1 deactivated">Your basic account details</small>
+                        </div>
+                        <div class="account-info flex col" style="gap: 8px;">
+                            <div class="flex row j-between">
+                                <span class="text-1">Member since:</span>
+                                <span class="text-1">January 2024</span>
+                            </div>
+                            <div class="flex row j-between">
+                                <span class="text-1">Posts created:</span>
+                                <span class="text-1">156</span>
+                            </div>
+                            <div class="flex row j-between">
+                                <span class="text-1">Storage used:</span>
+                                <span class="text-1">2.3 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script type="module" src="JavaScript/Default.js"></script>
+    <script src="JavaScript/all.js"></script>
+    <script type="module" src="JavaScript/friends.js"></script>
+</body>
+</html>

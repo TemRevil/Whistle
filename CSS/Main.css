@@ -1,0 +1,586 @@
+/* Structing The Galaxy */
+.main-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 390px 1fr 365px;
+    grid-template-rows: 160px 1fr;
+    grid-template-areas: 
+        "sidebar the-main-center suggestions"
+        "sidebar the-main-center suggestions";
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ------------------------------------- */
+/* Over the Limits - Outlaws */
+/* Simple dynamic circles behind boxes */
+.inside-thiefe {
+    position: relative;
+    overflow: hidden;
+}
+
+.inside-thiefe::before,
+.inside-thiefe::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0.6;
+}
+
+.inside-thiefe::before {
+    width: 120px;
+    height: 120px;
+    top: -30px;
+    right: -30px;
+    background-color: var(--circle-color-1, rgb(128 128 128 / 28%));
+    animation: float-1 14s ease-in-out infinite;
+}
+
+.inside-thiefe::after {
+    width: 80px;
+    height: 80px;
+    bottom: -20px;
+    left: -20px;
+    background-color: var(--circle-color-2, rgb(148 148 148 / 22%));
+    animation: float-2 18s ease-in-out infinite reverse;
+}
+
+@keyframes float-1 {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-15px, -10px) scale(1.1); }
+    50% { transform: translate(-25px, 5px) scale(0.9); }
+    75% { transform: translate(10px, -20px) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float-2 {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(12px, -8px) scale(0.85); }
+    40% { transform: translate(-5px, 15px) scale(1.15); }
+    60% { transform: translate(20px, 10px) scale(0.95); }
+    80% { transform: translate(-10px, -5px) scale(1.08); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+/* ------------------------------------- */
+/* First Aside */
+.first-aside {
+    grid-area: sidebar;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.user-box {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 7px 20px #1234564b
+}
+
+.user-img {
+    width: 90px;
+    height: 90px;
+    max-width: 90px;
+    max-height: 90px;
+    min-width: 90px;
+    min-height: 90px;
+}
+
+#user-name {
+    font-size: clamp(18px, 2vw, 24px);
+}
+#username {
+    font-size: clamp(16px, 1.8vw, 22px);
+    opacity: 0.6;
+}
+/* ------------------------------------- */
+.main-center-g {
+    grid-area: the-main-center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/* ------------------------------------- */
+/* Stories Over the Horizon */
+.story-line {
+    width: 100%;
+    min-width: 300px;
+    min-height: 160px;
+    max-height: 160px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    touch-action: pan-y;
+    user-select: none;
+    cursor: grab; 
+}
+.story-line.dragging {
+    cursor: grabbing;
+}
+.story-line:has(.story-box.active) {
+    overflow: visible !important;
+    z-index: 100;
+}
+
+.story-box {
+    width: 100px;
+    height: 120px;
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    flex-shrink: 0;
+    transform-origin: center;
+    overflow: hidden;
+}
+.story-box.active {
+    width: 250px !important;
+    height: 200px !important;
+    z-index: 1000;
+    box-shadow: 0 8px 40px rgba(18, 52, 86, 0.3);
+    position: relative;
+    transform: translateY(-20px);
+}
+.story-preview {
+    width: 100%;
+    height: calc(100% - 70px);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.story-data-inpreview {
+    width: 100%;
+    height: calc(100% - 115px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background-image: linear-gradient(0deg, var(--ag-blur), #ffffff00);
+    backdrop-filter: blur(var(--fill-blur));
+}
+.story-data-inpreview .text {
+    font-size: 26px;
+    font-weight: 600;
+}
+.story-rounded {
+    width: 90px;
+    height: 90px;
+    padding: 4px;
+    border: 3px solid var(--our-blue);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
+}
+.story-rounded img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.story-box.active .story-rounded {
+    width: 90px;
+    height: 90px;
+}
+.story-box:hover .story-rounded {
+    border-color: var(--our-blue-lighted);
+    animation: loading-story 0.5s 0.5s infinite alternate;
+}
+.story-box:active .story-rounded {
+    transform: scale(0.95);
+}
+.story-rounded.watched {
+    border-color: var(--emerald);
+}
+.story-box .text {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 4px;
+    transition: all 0.3s ease;
+}
+.story-box.active .text {
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 220px;
+}
+/* Loading animation for hover */
+@keyframes loading-story {
+    0% {
+        border-color: var(--our-blue-lighted);
+    }
+    100% {
+        border-color: var(--our-blue);
+    }
+}
+/* ------------------------------------- */
+/* Where you see the lights shifts to dark either times. */
+.feed {
+    width: 100%;
+    height: calc(100vh - 160px);
+    align-items: center;
+}
+/* ------------------------------------- */
+/* Story Viewer */
+#storyViewer {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--ag-blur);
+    backdrop-filter: blur(var(--fill-blur));
+    z-index: 15;
+}
+.viewer-box {
+    width: 420px;
+    aspect-ratio: 9/16;
+    max-height: 95vh;
+    background-color: var(--bg-primary);
+    border-radius: 15px;
+    box-shadow: 0 7px 30px #1234564b;
+    overflow: hidden;
+    position: relative;
+}
+
+.viewer-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-image: linear-gradient(to bottom, #0009, transparent);
+    backdrop-filter: blur(var(--fill-blur));
+    z-index: 2;
+    border-radius: 15px 15px 0 0;
+}
+.viewer-header img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.viewer-header .text {
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.close-btn {
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.close-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: var(--our-blue);
+}
+
+.stories-progress {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.stories-progress > div {
+    flex: 1;
+    height: 3px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+.stories-progress > div.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    animation: progressFill var(--duration, 5s) linear forwards;
+}
+.stories-progress > div.completed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.viewer-story {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.viewer-story video,
+.viewer-story img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.viewer-footer {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.like-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.like-btn:hover {
+    transform: scale(1.1);
+    color: #ff3040;
+    background-color: rgba(255,48,64,0.1);
+}
+.like-btn.st-like {
+    color: #ff3040;
+    background-color: rgba(255,48,64,0.2);
+}
+
+@keyframes progressFill {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+/* ------------------------------------- */
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .main-grid {
+        grid-template-columns: 320px 1fr 365px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-grid {
+        grid-template-columns: 320px 1fr 320px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-grid {
+        grid-template-columns: 280px 1fr;
+        grid-template-areas: 
+            "sidebar the-main-center"
+            "sidebar the-main-center";
+    }
+    
+    .suggestions {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-grid {
+        grid-template-columns: 80px 1fr;
+        grid-template-areas: 
+            "sidebar the-main-center"
+            "sidebar the-main-center";
+    }
+
+    .first-aside {
+        padding: 10px;
+    }
+
+    /* Adjust user box for mobile */
+    .user-box {
+        height: 60px;
+        padding: 5px;
+        background-color: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .user-box::before,
+    .user-box::after {
+        display: none;
+    }
+    
+    .user-img {
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+    
+    .user-box .j-center {
+        display: none;
+    }
+    
+    /* Adjust menu for icon-only view */
+    .menu-list {
+        padding: 10px 5px;
+    }
+    
+    .menu-btn {
+        padding: 8px;
+    }
+    
+    .menu-btn .text {
+        display: none;
+    }
+    
+    .menu-btn svg {
+        width: 24px;
+        margin: 0 auto;
+    }
+    
+    .settings-btn {
+        max-width: 70px;
+    }
+    
+    .story-line {
+        padding: 15px;
+        overflow: visible !important;
+    }
+    
+    .story-line:has(.story-box.active) {
+        overflow: visible !important;
+        z-index: 100;
+    }
+    
+    .story-preview {
+        height: 100%;
+    }
+    
+    .story-data-inpreview {
+        height: calc(100% - 100px);
+        padding: 5px;
+    }
+    
+    .story-box.active {
+        width: 200px !important;
+        height: 150px !important;
+        font-size: 16px !important;
+        transform: translateY(-15px);
+    }
+    
+    .story-box.active .story-data-inpreview .text:first-child {
+        font-size: 16px !important;
+    }
+    
+    .story-username-preview {
+        font-size: 16px !important;
+        color: #fff;
+    }
+    
+    .story-box.active .text {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .post-grid-overlay {
+        font-size: 1.8rem;
+    }
+    
+    .post-grid-overlay:hover {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .main-grid {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .first-aside {
+        padding: 8px;
+    }
+    
+    .user-box {
+        height: 50px;
+        padding: 5px;
+    }
+    
+    .user-img {
+        width: 40px;
+        height: 40px;
+        max-width: 40px;
+        max-height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    .menu-btn {
+        padding: 6px;
+    }
+    
+    .menu-btn svg {
+        width: 20px;
+    }
+    
+    /* Make story boxes more compact */
+    .story-box {
+        width: 80px;
+        height: 100px;
+    }
+    
+    .story-box.active {
+        width: 180px !important;
+        height: 140px !important;
+        transform: translateY(-10px);
+    }
+    
+    .story-rounded {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .story-box .text {
+        font-size: 12px;
+    }
+
+    .post-media {
+        height: 250px;
+    }
+    
+    .post-grid-overlay {
+        font-size: 1.5rem;
+    }
+    
+    .post-grid-overlay:hover {
+        font-size: 1.7rem;
+    }
+}
