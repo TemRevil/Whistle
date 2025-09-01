@@ -1496,6 +1496,7 @@ class ThemeToggler {
     '--tx-primary': '#000',
     '--tx-ag-blur': '#333',
     '--whites': '#fff',
+    '--ag-whites': '#fff',
     '--blur': '#00000040',
     '--ag-blur': '#ffffff59',
     '--emerald': '#2fbf71ff',
@@ -1508,7 +1509,8 @@ class ThemeToggler {
     '--bg-primary': '#0f1115',
     '--tx-primary': '#fff',
     '--tx-ag-blur': '#aaa',
-    '--whites': '#111', /* darker white */
+    '--whites': '#fff',
+    '--ag-whites': '#111',
     '--blur': '#ffffff25',
     '--ag-blur': '#00000070',
     '--emerald': '#2fbf71ff',

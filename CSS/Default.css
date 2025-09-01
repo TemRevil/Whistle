@@ -25,6 +25,7 @@
     --tx-ag-blur: #333;
 
     --whites: #fff;
+    --ag-whites: #fff;
 
 	--blur: #00000040;
 	--ag-blur: #ffffff59;
@@ -32,6 +33,11 @@
 	--emerald: #2fbf71ff;
 	--our-blue-lighted: #bfddffff;
 	--our-blue: #3395ffff;
+
+    --tp-head: #2d3748;
+    --tp-username: #718096;
+    --tp-number: #2d3748;
+    --tp-lable: #a0aec0;
 
 	--fill-blur: 12px;
 }
@@ -400,7 +406,7 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    color: var(--tx-primary);
+    color: var(--whites);
     border-radius: inherit;
     display: flex;
     align-items: center;
@@ -437,7 +443,7 @@ body {
 }
 .liked {
     background-color: #3395ff !important;
-    color: var(--tx-primary) !important;
+    color: var(--whites) !important;
 }
 /* ------------------------------------- */
 /* Post Viewer Stylishly */
@@ -476,7 +482,7 @@ body {
 .media-item {
     flex: 0 0 min(400px, 70vw);
     height: 100%;
-    max-height: calc(100vh - 80px); /* Account for padding and some margin */
+    max-height: calc(100vh - 80px);
     opacity: 0.4;
     transform: scale(0.8);
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -537,11 +543,7 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-sizing: border-box;
+    overflow-y: auto;
 }
 .post-content-view .post-text {
     font-size: 18px;
@@ -556,9 +558,7 @@ body {
 }
 .comments {
     flex: 1;
-    overflow-y: auto;
     padding-right: 5px;
-    min-height: 0; /* Important for flex overflow */
 }
 /* Custom scrollbar for comments */
 .comments::-webkit-scrollbar {
@@ -987,7 +987,7 @@ body {
     height: 60px;
     padding: 5px;
     border-radius: 15px;
-    background-color: var(--whites);
+    background-color: var(--ag-blur);
     box-shadow: 0 4px 20px #12345633;
     transition: 0.15s ease-in-out;
     cursor: pointer;
@@ -1025,6 +1025,8 @@ body {
 .cur-whistle {
     width: 100%;
     padding: 5px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .cur-whistle .text {
     font-size: 19px;
@@ -1034,40 +1036,45 @@ body {
     border-radius: 5px;
     padding: 5px 10px;
 }
-
 .cur-whistle-img {
     width: 35px;
     min-width: 35px;
     max-width: 35px;
     height: 35px;
 }
-
 .whistle-messages {
     width: 100%;
     height: calc(100% - 110px);
     padding: 10px 5px;
     overflow-y: auto;
 }
-
+.whistle-messages::-webkit-scrollbar-track {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.whistle-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 0, 0.3);
+    border-radius: 3px;
+}
+.whistle-messages::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
 .whistle-in-live {
     width: 100%;
     margin-bottom: 8px;
 }
-
 /* Messages aligned to start (received messages) */
 .whistle-in-live.a-start .message {
     background-color: var(--our-blue);
     color: var(--tx-primary);
     border-bottom-left-radius: 5px;
 }
-
 /* Messages aligned to end (sent messages) */
 .whistle-in-live.a-end .message.sent {
     background-color: var(--our-blue-lighted);
     color: var(--tx-primary);
     border-bottom-left-radius: 5px;
 }
-
 .message {
     width: fit-content;
     max-width: 200px;
@@ -1078,7 +1085,6 @@ body {
     word-wrap: break-word;
     line-height: 1.4;
 }
-
 .whistle-input {
     width: 100%;
     height: 50px;
@@ -1086,12 +1092,11 @@ body {
     bottom: 0;
     padding: 5px 10px;
 }
-
 #whistleInput {
     width: calc(100% - 60px);
     height: 40px;
     padding: 0 10px;
-    background-color: var(--whites);
+    background-color: var(--ag-whites);
     box-shadow: 0 4px 20px #12345633;
     border: none;
     border-radius: 15px;
@@ -1099,7 +1104,6 @@ body {
     font-size: 16px;
     color: var(--tx-primary);
 }
-
 .send-btn {
     width: 60px;
     height: 40px;
@@ -1112,7 +1116,6 @@ body {
     transition: 0.15s ease-in-out;
     cursor: pointer;
 }
-
 .send-btn:hover {
     background-color: var(--our-blue-lighted);
 }
@@ -1194,7 +1197,7 @@ body {
     padding: 10px 14px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: var(--whites);
+    background-color: var(--ag-whites);
     cursor: pointer;
 }
 .dropdown-menu {

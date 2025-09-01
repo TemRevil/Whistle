@@ -122,7 +122,7 @@
 .tooltip-name {
   font-size: 16px;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--tp-head);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -130,7 +130,7 @@
 .tooltip-username {
   font-size: 14px;
   font-weight: 400;
-  color: #718096;
+  color: var(--tp-username);
   margin-top: 2px;
 }
 .tooltip-stats {
@@ -142,12 +142,12 @@
 .stat-number {
   font-size: 14px;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--tp-number);
 }
 .stat-label {
   font-size: 12px;
   font-weight: 400;
-  color: #a0aec0;
+  color: var(--tp-lable);
   text-transform: uppercase;
 }
 .tooltip-status {
