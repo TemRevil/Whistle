@@ -1148,7 +1148,7 @@ class ThunderMessenger {
     
     getDefaultConversation() {
         const defaults = {
-            mohammed_dev: [{from:'them',text:'Hey! How are you doing?'},{from:'me',text:'They Tryna Insult My Intelligence, Sometimes i may Act Stupid.'},{from:'them',text:"That's deep man! 🤔"},{from:'me',text:'Yeah, just keeping it real 💯'},{from:'them',text:'Respect! Always stay true to yourself'}],
+            omar_dev: [{from:'them',text:'Hey! How are you doing?'},{from:'me',text:'They Tryna Insult My Intelligence, Sometimes i may Act Stupid.'},{from:'them',text:"That's deep man! 🤔"},{from:'me',text:'Yeah, just keeping it real 💯'},{from:'them',text:'Respect! Always stay true to yourself'}],
             sarah_design: [{from:'them',text:"What's up everyone! 🎉"}],
             alex_photo: [{from:'them',text:'Just finished my morning workout 💪'}],
             emma_art: [{from:'them',text:'Coffee and coding this morning ☕'}],
